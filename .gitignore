@@ -1,0 +1,22 @@
+# Raw database backup (too large for GitHub, document the download link in README instead)
+Raw_Data/raw/*.bak
+*.bak
+
+# Power BI temporary and cache files
+*.pbi*.tmp
+.pbi/
+*.pbix.bak
+*.pbids
+
+# Office temp/lock files
+~$*
+*.tmp
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
