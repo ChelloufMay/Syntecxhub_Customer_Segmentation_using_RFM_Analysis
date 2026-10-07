@@ -45,3 +45,51 @@ SELECT COUNT(DISTINCT CustomerKey)      AS CustomersWhoBought,
        COUNT(DISTINCT SalesOrderNumber) AS TotalOrders,
        SUM(SalesAmount)                 AS TotalSales
 FROM FactInternetSales;
+
+--9. Check the Frequency distribution
+
+WITH rfm AS (
+    SELECT CustomerKey,
+           DATEDIFF(DAY, MAX(OrderDate), '2014-01-29') AS Recency,
+           COUNT(DISTINCT SalesOrderNumber)            AS Frequency,
+           SUM(SalesAmount)                            AS Monetary
+    FROM FactInternetSales
+    GROUP BY CustomerKey
+)
+SELECT Frequency, COUNT(*) AS Customers
+FROM rfm
+GROUP BY Frequency
+ORDER BY Frequency;
+
+
+--10. Get the raw values and thresholds
+
+WITH rfm AS (
+    SELECT CustomerKey,
+           DATEDIFF(DAY, MAX(OrderDate), '2014-01-29') AS Recency,
+           COUNT(DISTINCT SalesOrderNumber)            AS Frequency,
+           SUM(SalesAmount)                            AS Monetary
+    FROM FactInternetSales
+    GROUP BY CustomerKey
+)
+-- Customer values
+SELECT * FROM rfm WHERE CustomerKey = 11000;
+
+-- Thresholds (same method as DAX PERCENTILE.INC)
+WITH rfm AS (
+    SELECT CustomerKey,
+           DATEDIFF(DAY, MAX(OrderDate), '2014-01-29') AS Recency,
+           SUM(SalesAmount)                            AS Monetary
+    FROM FactInternetSales
+    GROUP BY CustomerKey
+)
+SELECT DISTINCT
+    PERCENTILE_CONT(0.2) WITHIN GROUP (ORDER BY Recency)  OVER () AS R_p20,
+    PERCENTILE_CONT(0.4) WITHIN GROUP (ORDER BY Recency)  OVER () AS R_p40,
+    PERCENTILE_CONT(0.6) WITHIN GROUP (ORDER BY Recency)  OVER () AS R_p60,
+    PERCENTILE_CONT(0.8) WITHIN GROUP (ORDER BY Recency)  OVER () AS R_p80,
+    PERCENTILE_CONT(0.2) WITHIN GROUP (ORDER BY Monetary) OVER () AS M_p20,
+    PERCENTILE_CONT(0.4) WITHIN GROUP (ORDER BY Monetary) OVER () AS M_p40,
+    PERCENTILE_CONT(0.6) WITHIN GROUP (ORDER BY Monetary) OVER () AS M_p60,
+    PERCENTILE_CONT(0.8) WITHIN GROUP (ORDER BY Monetary) OVER () AS M_p80
+FROM rfm;
