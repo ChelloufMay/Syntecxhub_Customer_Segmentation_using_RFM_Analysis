@@ -93,3 +93,15 @@ SELECT DISTINCT
     PERCENTILE_CONT(0.6) WITHIN GROUP (ORDER BY Monetary) OVER () AS M_p60,
     PERCENTILE_CONT(0.8) WITHIN GROUP (ORDER BY Monetary) OVER () AS M_p80
 FROM rfm;
+
+
+--11. Determin the accuraccy of the map
+USE AdventureWorksDW2025;
+
+SELECT SUM(f.SalesAmount) AS Sales,
+       COUNT(DISTINCT f.CustomerKey) AS Customers,
+       COUNT(DISTINCT f.SalesOrderNumber) AS Orders
+FROM FactInternetSales f
+JOIN DimCustomer c  ON f.CustomerKey = c.CustomerKey
+JOIN DimGeography g ON c.GeographyKey = g.GeographyKey
+WHERE g.EnglishCountryRegionName = 'Australia';
