@@ -278,7 +278,7 @@ Right-click a segment, country, gender, marital status, or age band on pages 1 a
 
 ### Page 4: Segment Guide (hidden page)
 
-![Segment Guide](Dashboard_Images/page4_guide.png)
+![Segment Guide](Dashboard_Images/page4_segment_guide.png)
 
 Opened from the information button on page 2. It defines Recency, Frequency, and Monetary, lists the segment rules, and shows each segment's customer count, description and recommended marketing action.
 
