@@ -264,7 +264,7 @@ The score therefore equals the order count, capped at 5, which also stops a few 
 | **Share of Customers (donut)** | The base is split into three large groups (New, Hibernating / Lost, Loyal at roughly 21 to 22% each), with At Risk at 18%. Champions are a small elite at under 5%. |
 | **Sales by Segment** | Sales are highly concentrated. **Loyal Customers and At Risk each bring in about $11M**, together about 75% of all sales from roughly 39% of customers. Champions follow at about $3.6M. New Customers, Potential Loyalists, and Hibernating / Lost together contribute only a small share. |
 | **Average Spend per Customer** | Champions spend the most (about $4.0K each), followed by At Risk ($3.2K) and Loyal ($2.9K). Potential Loyalists ($0.4K), New Customers ($0.5K), and Hibernating / Lost ($0.2K) spend little. |
-| **Average Recency** | New Customers (about 70 days) and Champions (about 70 days) bought most recently; Loyal about 110 days. At Risk is the least recent at about 350 days, followed by Hibernating / Lost at about 290. |
+| **Average Recency** | New Customers (about 70 days) and Champions (about 70 days) bought most recently; Loyal about 110 days. At Risk is the least recent at about 350 days, followed by Hibernating / Lost at about 290 days. |
 
 **Key insight:** At Risk customers are as valuable as Loyal ones (about $3.2K against $2.9K per customer), but they haven't bought for nearly a year. This is the best opportunity for a win-back campaign.
 
@@ -274,13 +274,13 @@ The score therefore equals the order count, capped at 5, which also stops a few 
 
 Right-click a segment, country, gender, marital status, or age band on pages 1 and 2, then choose **Drill through → Customer Details** to see exactly who is in that group. The table shows Customer ID, name, email, location, segment, Recency, Frequency, Monetary, and RFM Score.
 
-**Interpretation:** This page turns a segment label into a usable target list. For example, drilling through from *At Risk* gives marketing the customers to contact in a win-back campaign, with their value and last-purchase age to prioritize them. Names and emails are fictional AdventureWorks data. In a real company, this page would be restricted to the marketing team for privacy reasons.
+**Interpretation:** This page turns a segment label into a usable target list. For example, drilling down from *At Risk* gives marketing the customers to contact in a win-back campaign, along with their value and last-purchase age to prioritize. Names and emails are fictional AdventureWorks data. In a real company, this page would be restricted to the marketing team for privacy reasons.
 
 ### Page 4: Segment Guide (hidden page)
 
 ![Segment Guide](Dashboard_Images/page4_guide.png)
 
-Opened from the information button on page 2. It defines Recency, Frequency and Monetary, lists the segment rules, and shows each segment's customer count, description and recommended marketing action.
+Opened from the information button on page 2. It defines Recency, Frequency, and Monetary, lists the segment rules, and shows each segment's customer count, description and recommended marketing action.
 
 ---
 
